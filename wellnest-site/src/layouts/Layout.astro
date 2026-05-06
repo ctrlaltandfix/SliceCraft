@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'WellNest — your chronic illness companion',
+  description = 'WellNest brings your medications, appointments, symptoms, expenses and emergency plan into one private, beautifully simple place.',
+} = Astro.props as { title?: string; description?: string };
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23059669'%3E%3Cpath d='M11 20A7 7 0 0 1 4 13c0-7 7-9 16-9 0 8-2 16-9 16-3 0-5-2-5-5a5 5 0 0 1 5-5'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

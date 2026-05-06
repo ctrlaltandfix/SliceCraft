@@ -1,0 +1,60 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+
+const links = [
+  { label: 'Features', href: '#features' },
+  { label: 'Conditions', href: '#conditions' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'Privacy', href: '#privacy' },
+];
+---
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-canvas/70 border-b hairline">
+  <div class="container-page flex items-center justify-between h-16">
+    <Logo />
+
+    <nav class="hidden md:flex items-center gap-1">
+      {links.map(l => (
+        <a
+          href={l.href}
+          class="px-3.5 py-2 text-sm text-ink-soft hover:text-ink rounded-full transition-colors"
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="#login" class="hidden sm:inline-flex text-sm text-ink-soft hover:text-ink px-3 py-2 transition-colors">
+        Sign in
+      </a>
+      <a href="#start" class="btn-primary text-sm">
+        Start free
+        <Icon name="arrow" class="w-4 h-4" />
+      </a>
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-full hover:bg-white/70 transition"
+        aria-label="Open menu"
+      >
+        <Icon name="menu" class="w-5 h-5" />
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden hidden border-t hairline bg-canvas/95">
+    <nav class="container-page py-3 flex flex-col gap-1">
+      {links.map(l => (
+        <a href={l.href} class="px-3 py-3 text-sm text-ink-soft hover:bg-white rounded-xl transition">
+          {l.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

@@ -1,0 +1,49 @@
+---
+import Icon from './Icon.astro';
+
+const features = [
+  { icon: 'dashboard', name: 'Dashboard',    blurb: 'Your day at a glance. Drag-and-drop tiles for what matters today.', tier: 'Free' },
+  { icon: 'flame',     name: 'CRPSmate',     blurb: 'Track flares, triggers and pain patterns. Built with the CRPS community.', tier: 'Premium' },
+  { icon: 'wind',      name: 'AsthmaMate',   blurb: 'Inhaler logs, peak-flow trends and weather-based risk alerts.', tier: 'Premium' },
+  { icon: 'pill',      name: 'Medications',  blurb: 'Doses, refills and reminders that actually nudge you on time.', tier: 'Premium' },
+  { icon: 'calendar',  name: 'Appointments', blurb: 'Schedule, prep notes and follow-ups in one calm timeline.', tier: 'Premium' },
+  { icon: 'phone',     name: 'Contacts',     blurb: 'Specialists, GPs and emergency contacts — one tap away.', tier: 'Premium' },
+  { icon: 'dollar',    name: 'Expenses',     blurb: 'Capture every receipt for insurance and tax claims.', tier: 'Premium' },
+  { icon: 'dumbbell',  name: 'Exercises',    blurb: 'Gentle routines paced to your daily energy budget.', tier: 'Premium' },
+  { icon: 'alert',     name: 'Emergency',    blurb: 'A printable plan with meds, allergies and contacts. Share instantly.', tier: 'Premium' },
+  { icon: 'leaf',      name: 'Mindfulness',  blurb: 'Guided breathing and grounding for tougher days.', tier: 'Premium' },
+  { icon: 'trophy',    name: 'Achievements', blurb: 'Celebrate the small wins. Streaks that respect your bad days.', tier: 'Free' },
+];
+---
+<section id="features" class="container-page py-24 md:py-36">
+  <div class="flex items-end justify-between flex-wrap gap-6 mb-14">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>01 — Modules</span>
+      <h2 class="mt-4 text-4xl md:text-5xl font-semibold leading-[1.05] max-w-2xl">
+        Eleven modules. <span class="text-ink-muted">One quiet home for your health.</span>
+      </h2>
+    </div>
+    <p class="max-w-sm text-ink-muted text-sm">
+      Every module is opt-in. Show only what you need today, hide the rest.
+      Your dashboard adapts to your condition, not the other way round.
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    {features.map((f, i) => (
+      <article class="group relative surface p-6 hover:border-ink/30 transition-colors">
+        <div class="flex items-start justify-between">
+          <span class="flex items-center justify-center w-11 h-11 rounded-2xl bg-canvas-warm text-ink-soft group-hover:bg-nest-50 group-hover:text-nest-700 transition-colors">
+            <Icon name={f.icon} class="w-5 h-5" strokeWidth={1.6} />
+          </span>
+          <span class={`text-[10px] font-medium tracking-wider uppercase px-2 py-1 rounded-full ${f.tier === 'Free' ? 'bg-nest-50 text-nest-700 border border-nest-100' : 'bg-canvas-warm text-ink-muted border border-hairline'}`}>
+            {f.tier}
+          </span>
+        </div>
+        <h3 class="mt-5 text-base font-semibold text-ink">{f.name}</h3>
+        <p class="mt-1.5 text-sm text-ink-muted leading-relaxed">{f.blurb}</p>
+        <span class="absolute top-4 right-4 text-[10px] font-mono text-ink-muted/50">{String(i + 1).padStart(2, '0')}</span>
+      </article>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+import Icon from './Icon.astro';
+---
+<section id="conditions" class="relative">
+  <div class="container-page py-24 md:py-36">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="eyebrow"><span class="dot"></span>02 — Condition specialists</span>
+      <h2 class="mt-4 text-4xl md:text-5xl font-semibold leading-[1.05]">
+        Tools that <span class="italic font-light text-nest-700">actually understand</span> your condition.
+      </h2>
+      <p class="mt-5 text-ink-muted">
+        Most health apps are built for the worried well. WellNest's specialist
+        modules are built for the people other apps forget.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-4">
+      <!-- CRPSmate -->
+      <div class="surface p-8 lg:p-10 relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-80 h-80 bg-rose-100/60 rounded-full blur-3xl"></div>
+        <div class="relative">
+          <div class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-100 to-amber-100 text-rose-600">
+              <Icon name="flame" class="w-6 h-6" />
+            </span>
+            <div>
+              <h3 class="text-2xl font-semibold">CRPSmate</h3>
+              <p class="text-xs text-ink-muted">Complex Regional Pain Syndrome</p>
+            </div>
+          </div>
+
+          <p class="mt-6 text-ink-soft leading-relaxed">
+            Log flares with body-map precision, identify trigger patterns, and
+            build a shareable pain diary your specialists will actually read.
+          </p>
+
+          <ul class="mt-6 space-y-2.5 text-sm text-ink-soft">
+            <li class="flex items-start gap-2"><Icon name="check" class="w-4 h-4 text-nest-600 mt-0.5 shrink-0" /> Body-map flare logging with allodynia and temperature notes</li>
+            <li class="flex items-start gap-2"><Icon name="check" class="w-4 h-4 text-nest-600 mt-0.5 shrink-0" /> Trigger correlation across weather, stress and activity</li>
+            <li class="flex items-start gap-2"><Icon name="check" class="w-4 h-4 text-nest-600 mt-0.5 shrink-0" /> Specialist-ready PDF summaries</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AsthmaMate -->
+      <div class="surface p-8 lg:p-10 relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-80 h-80 bg-sky-100/60 rounded-full blur-3xl"></div>
+        <div class="relative">
+          <div class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-100 to-cyan-100 text-sky-700">
+              <Icon name="wind" class="w-6 h-6" />
+            </span>
+            <div>
+              <h3 class="text-2xl font-semibold">AsthmaMate</h3>
+              <p class="text-xs text-ink-muted">Asthma &amp; respiratory tracking</p>
+            </div>
+          </div>
+
+          <p class="mt-6 text-ink-soft leading-relaxed">
+            Smart inhaler logs, peak-flow trends, and proactive alerts when
+            your local air or weather conditions are likely to push you red.
+          </p>
+
+          <ul class="mt-6 space-y-2.5 text-sm text-ink-soft">
+            <li class="flex items-start gap-2"><Icon name="check" class="w-4 h-4 text-nest-600 mt-0.5 shrink-0" /> Reliever &amp; preventer dose tracking with refill nudges</li>
+            <li class="flex items-start gap-2"><Icon name="check" class="w-4 h-4 text-nest-600 mt-0.5 shrink-0" /> Peak-flow charts with green / amber / red zones</li>
+            <li class="flex items-start gap-2"><Icon name="check" class="w-4 h-4 text-nest-600 mt-0.5 shrink-0" /> Pollen, pollution &amp; weather risk forecasts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

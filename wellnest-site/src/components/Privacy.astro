@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+
+const pillars = [
+  { icon: 'lock',    title: 'Private by default',   text: 'Your health data belongs to you. We never sell it. We never train models on it.' },
+  { icon: 'shield',  title: 'Session timeout',      text: 'Auto-locks after inactivity so a left-open phone never becomes a leak.' },
+  { icon: 'check',   title: 'Consent first',        text: 'Granular consent banner. Clear what you share, with whom, and why.' },
+  { icon: 'sparkle', title: 'Export any time',      text: 'Download a clean PDF or JSON of everything. No lock-in. Ever.' },
+];
+---
+<section id="privacy" class="bg-ink text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[40rem] bg-nest-700/30 rounded-full blur-3xl"></div>
+
+  <div class="container-page py-24 md:py-36 relative">
+    <div class="max-w-2xl">
+      <span class="inline-flex items-center gap-2 text-xs font-medium tracking-widest uppercase text-nest-300">
+        <span class="w-1.5 h-1.5 rounded-full bg-nest-400 animate-pulse-soft"></span>
+        04 — Trust
+      </span>
+      <h2 class="mt-4 text-4xl md:text-5xl font-semibold leading-[1.05]">
+        Health data deserves
+        <span class="italic font-light text-nest-300">medical-grade privacy.</span>
+      </h2>
+      <p class="mt-5 text-white/70 max-w-lg">
+        Built privacy-first from day one. No tracking pixels.
+        No third-party ad SDKs. Just a quiet place for your health.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-14">
+      {pillars.map(p => (
+        <div class="rounded-[var(--radius-card)] bg-white/5 border border-white/10 p-6 backdrop-blur-sm">
+          <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 text-nest-300">
+            <Icon name={p.icon} class="w-5 h-5" />
+          </span>
+          <h3 class="mt-5 font-semibold">{p.title}</h3>
+          <p class="mt-1.5 text-sm text-white/60 leading-relaxed">{p.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
