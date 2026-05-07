@@ -1,0 +1,122 @@
+---
+import Icon from './Icon.astro';
+---
+<section id="modules" class="container-page py-28 md:py-36 relative">
+  <div class="flex items-end justify-between flex-wrap gap-6 mb-12">
+    <div>
+      <span class="pill"><span class="dot"></span>01 — Eleven modules</span>
+      <h2 data-reveal class="mt-5 text-4xl md:text-6xl font-semibold leading-[1.02] max-w-3xl">
+        Built like an <span class="text-aurora">operating system</span>
+        <span class="block">for chronic illness.</span>
+      </h2>
+    </div>
+    <p data-reveal class="max-w-sm text-text-muted text-sm">
+      Each module is a specialist tool. Together they're a single calm
+      surface — drag, hide, reorder, theme. Your dashboard, your call.
+    </p>
+  </div>
+
+  <!-- bento grid: 6 cols on desktop, 1 on mobile -->
+  <div data-reveal class="grid grid-cols-1 sm:grid-cols-6 auto-rows-[10rem] gap-3">
+
+    <!-- CRPSmate — large -->
+    <article class="sm:col-span-3 sm:row-span-2 glass glass-hover p-6 md:p-8 relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl opacity-40" style="background: radial-gradient(circle, #fb7185 0%, transparent 65%);"></div>
+      <div class="relative flex items-start justify-between">
+        <span class="flex items-center justify-center w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-400/30 text-rose-300">
+          <Icon name="flame" class="w-5.5 h-5.5"/>
+        </span>
+        <span class="text-[10px] tracking-[0.18em] uppercase text-rose-300/80">Premium</span>
+      </div>
+      <div class="relative mt-8">
+        <h3 class="text-2xl md:text-3xl font-semibold">CRPSmate</h3>
+        <p class="mt-2 text-sm text-text-soft max-w-md">Body-map flare logging, trigger correlation, specialist-ready PDFs. Built with the CRPS community.</p>
+      </div>
+      <!-- mini body-map silhouette -->
+      <svg viewBox="0 0 100 120" class="absolute right-6 bottom-6 w-24 h-32 opacity-90">
+        <path d="M50 4c-7 0-12 5-12 12 0 4 1 7 3 9-3 2-7 5-7 11v22l-7 18 4 2 6-15v25l-3 25h6l3-23h2l3 23h6l-3-25v-25l6 15 4-2-7-18V36c0-6-4-9-7-11 2-2 3-5 3-9 0-7-5-12-12-12z" fill="rgba(251,113,133,0.08)" stroke="rgba(251,113,133,0.5)" stroke-width="0.6"/>
+        <circle cx="38" cy="80" r="4" fill="#fb7185" class="animate-pulse-ring"/>
+        <circle cx="62" cy="55" r="3" fill="#fbbf24"/>
+      </svg>
+    </article>
+
+    <!-- AsthmaMate — large -->
+    <article class="sm:col-span-3 sm:row-span-2 glass glass-hover p-6 md:p-8 relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl opacity-40" style="background: radial-gradient(circle, #38bdf8 0%, transparent 65%);"></div>
+      <div class="relative flex items-start justify-between">
+        <span class="flex items-center justify-center w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-400/30 text-sky-300">
+          <Icon name="wind" class="w-5.5 h-5.5"/>
+        </span>
+        <span class="text-[10px] tracking-[0.18em] uppercase text-sky-300/80">Premium</span>
+      </div>
+      <div class="relative mt-8">
+        <h3 class="text-2xl md:text-3xl font-semibold">AsthmaMate</h3>
+        <p class="mt-2 text-sm text-text-soft max-w-md">Peak flow waveforms, weather risk and inhaler nudges that arrive before you wheeze.</p>
+      </div>
+      <!-- waveform -->
+      <div class="absolute right-6 bottom-6 flex items-end gap-1 h-20">
+        {[...Array(20)].map((_, i) => (
+          <span class="bar block w-1.5 rounded-t bg-gradient-to-t from-sky-500/80 to-cyan-300" style={`height:${25 + (i*11)%65}%; animation-delay:${i*0.07}s`}></span>
+        ))}
+      </div>
+    </article>
+
+    <!-- 2-wide cards row 1 -->
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-nest-300"><Icon name="dashboard" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Dashboard</h3>
+      <p class="text-xs text-text-muted mt-1">Drag-and-drop tiles for whatever today demands.</p>
+    </article>
+
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-nest-300"><Icon name="pill" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Medications</h3>
+      <p class="text-xs text-text-muted mt-1">Doses, refills, reminders. Sync to carers.</p>
+    </article>
+
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-400/30 text-rose-300"><Icon name="alert" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Emergency</h3>
+      <p class="text-xs text-text-muted mt-1">Sharable plan. Offline. One tap.</p>
+    </article>
+
+    <!-- row 2 -->
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-sky-300"><Icon name="calendar" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Appointments</h3>
+      <p class="text-xs text-text-muted mt-1">Schedule, prep notes, follow-ups in one timeline.</p>
+    </article>
+
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-nest-300"><Icon name="leaf" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Mindfulness</h3>
+      <p class="text-xs text-text-muted mt-1">Guided breathing, grounding, body-scan.</p>
+    </article>
+
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-amber-300"><Icon name="dumbbell" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Exercises</h3>
+      <p class="text-xs text-text-muted mt-1">Gentle routines paced to your energy budget.</p>
+    </article>
+
+    <!-- row 3 -->
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-violet-300"><Icon name="phone" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Contacts</h3>
+      <p class="text-xs text-text-muted mt-1">Specialists, GPs, carers — one tap away.</p>
+    </article>
+
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-nest-300"><Icon name="dollar" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Expenses</h3>
+      <p class="text-xs text-text-muted mt-1">Receipts ready for insurance & tax claims.</p>
+    </article>
+
+    <article class="sm:col-span-2 glass glass-hover p-5 relative overflow-hidden">
+      <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-amber-300"><Icon name="trophy" class="w-5 h-5"/></span>
+      <h3 class="mt-4 font-semibold">Achievements</h3>
+      <p class="text-xs text-text-muted mt-1">Streaks that respect your bad days.</p>
+    </article>
+
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import Icon from './Icon.astro';
+
+const pillars = [
+  { icon: 'lock',    title: 'Private by default',   text: 'Your health data belongs to you. Never sold, never used to train models.' },
+  { icon: 'shield',  title: 'Auto session lock',    text: 'Idle timeout means a left-open phone never becomes a leak.' },
+  { icon: 'check',   title: 'Granular consent',     text: 'Decide exactly what you share, with whom, and why.' },
+  { icon: 'sparkle', title: 'Export & delete',      text: 'Download a clean PDF or JSON. Delete it all on a single tap.' },
+];
+---
+<section id="privacy" class="container-page py-28 md:py-36 relative">
+  <div class="grid lg:grid-cols-2 gap-12 items-start">
+    <div data-reveal>
+      <span class="pill"><span class="dot"></span>04 — Trust</span>
+      <h2 class="mt-5 text-4xl md:text-6xl font-semibold leading-[1.02]">
+        Health data deserves
+        <span class="block text-aurora">medical-grade privacy.</span>
+      </h2>
+      <p class="mt-5 text-text-muted max-w-md">
+        Built privacy-first from day one. No tracking pixels.
+        No third-party ad SDKs. Just a quiet place for your health.
+      </p>
+    </div>
+    <div data-reveal class="grid sm:grid-cols-2 gap-3">
+      {pillars.map(p => (
+        <div class="glass glass-hover p-6 relative">
+          <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-line text-nest-300">
+            <Icon name={p.icon} class="w-5 h-5"/>
+          </span>
+          <h3 class="mt-4 font-semibold">{p.title}</h3>
+          <p class="mt-1.5 text-sm text-text-muted leading-relaxed">{p.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

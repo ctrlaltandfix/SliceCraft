@@ -1,0 +1,80 @@
+---
+import Icon from './Icon.astro';
+
+const free = [
+  'Customisable Dashboard',
+  'Achievements & streaks',
+  'Privacy controls & session timeout',
+  'Single device',
+];
+const premium = [
+  'Everything in Free',
+  'CRPSmate, AsthmaMate & every tracker',
+  'Medications, Appointments, Contacts',
+  'Expenses & insurance export',
+  'Exercises, Mindfulness, Emergency Plan',
+  'Sync across all your devices',
+];
+---
+<section id="pricing" class="container-page py-28 md:py-36 relative">
+  <div class="text-center max-w-2xl mx-auto mb-14">
+    <span class="pill"><span class="dot"></span>03 — Pricing</span>
+    <h2 data-reveal class="mt-5 text-4xl md:text-6xl font-semibold leading-[1.02]">
+      Honest pricing. <span class="text-text-muted">Cancel any time.</span>
+    </h2>
+  </div>
+
+  <div data-reveal class="grid md:grid-cols-2 gap-3 max-w-5xl mx-auto">
+    <!-- Free -->
+    <div class="glass glass-hover p-8 lg:p-10 relative overflow-hidden">
+      <div class="flex items-center justify-between">
+        <span class="pill"><span class="dot"></span>Free</span>
+      </div>
+      <h3 class="mt-5 text-3xl font-semibold">Get grounded</h3>
+      <p class="mt-2 text-sm text-text-muted">Start organising your health, today.</p>
+      <p class="mt-7 text-6xl font-semibold tracking-tight">$0</p>
+      <p class="text-xs text-text-muted mt-1">Forever. No card needed.</p>
+      <a href="#start" class="btn-line w-full justify-center mt-6">Create your nest</a>
+      <ul class="mt-8 space-y-3 text-sm text-text-soft">
+        {free.map(f => (
+          <li class="flex items-start gap-2.5">
+            <Icon name="check" class="w-4 h-4 text-nest-400 mt-0.5 shrink-0"/>
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Premium -->
+    <div class="relative rounded-[var(--radius-card)] p-8 lg:p-10 overflow-hidden ring-aurora" style="--ang:140deg;">
+      <div class="absolute inset-0 -z-0" style="background: radial-gradient(circle at 80% 0%, rgba(52,211,153,0.18) 0%, rgba(11,12,14,0.95) 50%, #0b0c0e 100%);"></div>
+      <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 18px 18px;"></div>
+      <div class="relative">
+        <div class="flex items-center justify-between">
+          <span class="pill" style="border-color: rgba(52,211,153,0.4); color: #6ee7b7;">
+            <Icon name="crown" class="w-3.5 h-3.5"/> Premium
+          </span>
+          <span class="text-[10px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full bg-nest-500/10 border border-nest-400/30 text-nest-300">Most chosen</span>
+        </div>
+        <h3 class="mt-5 text-3xl font-semibold">Live well, every day</h3>
+        <p class="mt-2 text-sm text-text-muted">Unlock every module and sync across devices.</p>
+        <p class="mt-7 text-6xl font-semibold tracking-tight">
+          $6<span class="text-base font-normal text-text-muted">/month</span>
+        </p>
+        <p class="text-xs text-text-muted mt-1">14-day free trial. Cancel any time.</p>
+        <a href="#start" class="btn-glow w-full justify-center mt-6">
+          Start 14-day trial
+          <Icon name="arrow" class="w-4 h-4"/>
+        </a>
+        <ul class="mt-8 space-y-3 text-sm text-text-soft">
+          {premium.map(f => (
+            <li class="flex items-start gap-2.5">
+              <Icon name="check" class="w-4 h-4 text-nest-400 mt-0.5 shrink-0"/>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+const { class: className = '' } = Astro.props as { class?: string };
+---
+<a href="/" class={`flex items-center gap-2.5 group ${className}`} aria-label="WellNest home">
+  <span class="relative flex items-center justify-center w-9 h-9 rounded-2xl overflow-hidden">
+    <span class="absolute inset-0 bg-gradient-to-br from-nest-300 via-nest-500 to-emerald-700"></span>
+    <span class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.5),transparent_60%)]"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0b0c0e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="relative w-4.5 h-4.5">
+      <path d="M11 20A7 7 0 0 1 4 13c0-7 7-9 16-9 0 8-2 16-9 16-3 0-5-2-5-5a5 5 0 0 1 5-5"/>
+    </svg>
+  </span>
+  <span class="text-[1.0625rem] font-semibold tracking-tight">
+    Well<span class="text-nest-400">Nest</span>
+  </span>
+</a>

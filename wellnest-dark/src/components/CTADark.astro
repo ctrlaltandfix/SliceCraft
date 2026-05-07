@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+---
+<section id="start" class="container-page py-28 md:py-36">
+  <div data-reveal class="relative overflow-hidden rounded-[2.5rem] p-10 md:p-20 text-center grain">
+    <div class="absolute inset-0 -z-10" style="background: radial-gradient(circle at 50% 0%, rgba(52,211,153,0.35) 0%, transparent 55%), radial-gradient(circle at 80% 100%, rgba(56,189,248,0.18) 0%, transparent 55%), #0b0c0e;"></div>
+    <div class="absolute inset-0 -z-10 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+
+    <span class="pill mx-auto"><span class="dot"></span>Ready when you are</span>
+    <h2 class="mt-6 text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.98] max-w-4xl mx-auto">
+      Take the weight of being unwell
+      <span class="text-aurora">off your shoulders.</span>
+    </h2>
+    <p class="mt-6 text-text-soft max-w-xl mx-auto">
+      Free forever for the essentials. Premium when you're ready for more.
+      Always private. Always exportable.
+    </p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+      <a href="#signup" class="btn-glow">
+        Create your nest
+        <Icon name="arrow" class="w-4 h-4"/>
+      </a>
+      <a href="#pricing" class="btn-line">
+        See pricing
+      </a>
+    </div>
+
+    <p class="mt-10 text-xs text-text-muted">
+      14-day Premium trial · No card · Cancel any time
+    </p>
+  </div>
+</section>

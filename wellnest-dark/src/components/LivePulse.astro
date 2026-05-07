@@ -1,0 +1,87 @@
+---
+const stats = [
+  { label: 'Doses tracked', value: 1248930, suffix: '' },
+  { label: 'Flares logged', value: 87412,  suffix: '' },
+  { label: 'Visits prepped', value: 24803, suffix: '' },
+  { label: 'Avg pain delta', value: 2.4,   suffix: '↓', decimals: 1 },
+];
+---
+<section id="conditions" class="container-page py-28 md:py-36 relative">
+  <div class="text-center max-w-2xl mx-auto">
+    <span class="pill"><span class="dot"></span>02 — Live signal</span>
+    <h2 data-reveal class="mt-5 text-4xl md:text-6xl font-semibold leading-[1.02]">
+      Built on <span class="text-glow italic font-light">real</span> patient data.
+    </h2>
+    <p data-reveal class="mt-5 text-text-muted">
+      Anonymised, opt-in patterns from the WellNest community drive
+      smarter alerts and trend lines for everyone.
+    </p>
+  </div>
+
+  <div data-reveal class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+    {stats.map(s => (
+      <div class="glass p-6 relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-2xl opacity-30" style="background: radial-gradient(circle, #34d399 0%, transparent 65%);"></div>
+        <p class="text-[10px] tracking-[0.18em] uppercase text-text-muted">{s.label}</p>
+        <p class="mt-3 text-4xl md:text-5xl font-semibold tracking-tight">
+          <span data-counter data-from="0" data-to={s.value} data-decimals={s.decimals ?? 0} data-format={s.value >= 1000 ? 'comma' : ''}>{s.value.toLocaleString()}</span>
+          <span class="text-base text-nest-400 ml-1">{s.suffix}</span>
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <!-- big spotlight strip -->
+  <div data-reveal class="mt-12 glass ring-aurora p-8 md:p-12 relative overflow-hidden grid lg:grid-cols-2 gap-10 items-center">
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle, #34d399 0%, transparent 60%);"></div>
+
+    <div class="relative">
+      <span class="pill" style="border-color: rgba(52,211,153,0.4); color: #6ee7b7;"><span class="dot"></span>Spotlight</span>
+      <h3 class="mt-5 text-3xl md:text-4xl font-semibold leading-tight">Tools that actually understand the conditions other apps forget.</h3>
+      <p class="mt-4 text-text-soft leading-relaxed">
+        CRPSmate models allodynia, temperature drift and trigger correlation.
+        AsthmaMate fuses peak-flow trends with local pollen, pollution and humidity.
+        Both export specialist-ready PDFs you'll actually want to share.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-2">
+        <span class="pill">CRPS</span>
+        <span class="pill">Asthma</span>
+        <span class="pill">EDS</span>
+        <span class="pill">POTS</span>
+        <span class="pill">Long COVID</span>
+        <span class="pill">+ many more</span>
+      </div>
+    </div>
+
+    <!-- visualised trend -->
+    <div class="relative glass p-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-[10px] tracking-[0.18em] uppercase text-text-muted">Flare correlation</p>
+          <p class="mt-1 text-sm">Weather + stress, last 30 days</p>
+        </div>
+        <span class="pill"><span class="dot"></span>Live</span>
+      </div>
+      <svg viewBox="0 0 400 140" class="w-full h-40 mt-4" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#fb7185" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#fb7185" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#34d399" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 90 L40 80 L80 95 L120 60 L160 70 L200 40 L240 60 L280 30 L320 50 L360 25 L400 35 L400 140 L0 140 Z" fill="url(#g1)"/>
+        <path class="draw-line" d="M0 90 L40 80 L80 95 L120 60 L160 70 L200 40 L240 60 L280 30 L320 50 L360 25 L400 35" fill="none" stroke="#fb7185" stroke-width="2"/>
+        <path d="M0 110 L40 100 L80 105 L120 95 L160 90 L200 75 L240 80 L280 65 L320 70 L360 55 L400 60 L400 140 L0 140 Z" fill="url(#g2)"/>
+        <path class="draw-line" style="animation-delay:0.8s;" d="M0 110 L40 100 L80 105 L120 95 L160 90 L200 75 L240 80 L280 65 L320 70 L360 55 L400 60" fill="none" stroke="#34d399" stroke-width="2"/>
+      </svg>
+      <div class="mt-3 flex items-center gap-5 text-xs text-text-muted">
+        <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span> Flare intensity</span>
+        <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-nest-400"></span> Recovery</span>
+      </div>
+    </div>
+  </div>
+</section>

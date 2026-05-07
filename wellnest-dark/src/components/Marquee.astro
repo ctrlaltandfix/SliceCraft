@@ -1,0 +1,23 @@
+---
+const items = [
+  'CRPS', 'Asthma', 'Fibromyalgia', 'EDS', 'Endometriosis', 'Migraine',
+  'Lupus', 'POTS', 'ME/CFS', 'Crohn\'s', 'Psoriatic arthritis',
+  'Long COVID', 'MS', 'Diabetes type 1',
+];
+---
+<section class="border-y border-line bg-void-2 py-5 overflow-hidden">
+  <div class="relative">
+    <div class="flex w-max animate-ticker">
+      {[...items, ...items].map(item => (
+        <span class="flex items-center gap-3 px-6 text-text-muted whitespace-nowrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-3 h-3 text-nest-400">
+            <circle cx="12" cy="12" r="3" fill="currentColor"/>
+          </svg>
+          <span class="text-sm tracking-tight">{item}</span>
+        </span>
+      ))}
+    </div>
+    <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-void-2 to-transparent pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-void-2 to-transparent pointer-events-none"></div>
+  </div>
+</section>
