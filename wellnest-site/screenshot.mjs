@@ -10,25 +10,43 @@ const browser = await chromium.launch({
   args: ['--no-sandbox'],
 });
 
-const shots = [
-  { name: 'desktop-full',  width: 1440, height: 900,  fullPage: true  },
-  { name: 'desktop-hero',  width: 1440, height: 900,  fullPage: false },
-  { name: 'mobile-full',   width: 390,  height: 844,  fullPage: true  },
+const ctx = await browser.newContext({
+  viewport: { width: 1440, height: 900 },
+  deviceScaleFactor: 2,
+});
+const page = await ctx.newPage();
+await page.goto(URL, { waitUntil: 'networkidle' });
+await page.waitForTimeout(1000);
+
+const sections = [
+  { name: '01-hero',       selector: 'section:nth-of-type(1)' },
+  { name: '02-features',   selector: '#features' },
+  { name: '03-conditions', selector: '#conditions' },
+  { name: '04-pricing',    selector: '#pricing' },
+  { name: '05-privacy',    selector: '#privacy' },
+  { name: '06-cta',        selector: '#start' },
+  { name: '07-footer',     selector: 'footer' },
 ];
 
-for (const s of shots) {
-  const ctx = await browser.newContext({
-    viewport: { width: s.width, height: s.height },
-    deviceScaleFactor: 2,
-  });
-  const page = await ctx.newPage();
-  await page.goto(URL, { waitUntil: 'networkidle' });
-  // give web fonts a moment
-  await page.waitForTimeout(800);
+for (const s of sections) {
+  const el = await page.$(s.selector);
+  if (!el) { console.log('skip', s.name); continue; }
+  await el.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(400);
   const path = `${OUT}/${s.name}.png`;
-  await page.screenshot({ path, fullPage: s.fullPage, type: 'png' });
+  await el.screenshot({ path, type: 'png' });
   console.log('wrote', path);
-  await ctx.close();
 }
+
+// also a mobile full-page
+const mobile = await browser.newContext({
+  viewport: { width: 390, height: 844 },
+  deviceScaleFactor: 2,
+});
+const mp = await mobile.newPage();
+await mp.goto(URL, { waitUntil: 'networkidle' });
+await mp.waitForTimeout(800);
+await mp.screenshot({ path: `${OUT}/00-mobile.png`, fullPage: true, type: 'png' });
+console.log('wrote mobile');
 
 await browser.close();
